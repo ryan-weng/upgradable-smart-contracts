@@ -1,6 +1,7 @@
 pragma solidity ^0.4.21;
 
 import './Proxy.sol';
+import './Address.sol';
 
 /**
  * @title UpgradeabilityProxy
@@ -37,6 +38,8 @@ contract UpgradeabilityProxy is Proxy {
    * @param newImplementation address representing the new implementation to be set
    */
   function setImplementation(address newImplementation) internal {
+    require(Address.isContract(newImplementation), "Cannot set a proxy implementation to a non-contract address");
+
     bytes32 position = implementationPosition;
     assembly {
       sstore(position, newImplementation)
