@@ -115,6 +115,6 @@ describe('Upgradeable Smart Contract Test Cases', () => {
     // try new contract logic
     await MyContractV4ByProxy.emptyStringData();
     outputStringData = await MyContractV4ByProxy.stringData.call();
-    assert.equal(outputStringData, "", "The stringData in the proxy is not set correctly!");
+    assert.equal(outputStringData, "");
   });
 });
