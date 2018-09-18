@@ -22,5 +22,8 @@ module.exports = {
       network_id: '*',
       gas: 4700000
     }
+  },
+  mocha: {
+    enableTimeouts: false
   }
 };
